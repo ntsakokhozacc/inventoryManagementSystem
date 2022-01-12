@@ -1,6 +1,8 @@
+
 <div>
     <div class="submit-form">
       <div *ngIf="!submitted">
+        <h4 class="display-5 text-center">Add Product</h4>
         <div class="form-group">
           <label for="title">Title</label>
           <input
@@ -23,8 +25,12 @@
             name="description"
           />
         </div>
+        <br>
+        <div class="d-grid gap-2">
+          <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+        </div>
   
-        <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+        
       </div>
   
       <div *ngIf="submitted">
