@@ -1,10 +1,10 @@
-
 <div>
     <div class="submit-form">
       <div *ngIf="!submitted">
-        <h4 class="display-5 text-center">Add Product</h4>
+        <h2>Add New item to inventory</h2>
         <div class="form-group">
-          <label for="title">Title</label>
+          <label for="title">Name</label>
+          <!-- this is the title -->
           <input
             type="text"
             class="form-control"
@@ -16,7 +16,41 @@
         </div>
   
         <div class="form-group">
+          <label for="description">SKU</label>
+          <!-- this is the description -->
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="tutorial.title"
+            name="description"
+          />
+        </div>
+
+        <div class="form-group">
           <label for="description">Description</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="tutorial.description"
+            name="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Price</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="tutorial.description"
+            name="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Stock Level</label>
           <input
             class="form-control"
             id="description"
@@ -29,12 +63,19 @@
         <div class="d-grid gap-2">
           <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
         </div>
+        
+
+
   
         
+
+        
+
+
       </div>
   
       <div *ngIf="submitted">
-        <h4>Tutorial was submitted successfully!</h4>
+        <h4>Item successfully added to Inventory!</h4>
         <button class="btn btn-success" (click)="newTutorial()">Add</button>
       </div>
     </div>
