@@ -18,6 +18,7 @@ export class TutorialsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveTutorials();
+
   }
 
   retrieveTutorials(): void {
@@ -51,6 +52,13 @@ export class TutorialsListComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+  }
+
+  removeById(id: any){
+    this.tutorialService.delete(id).subscribe(res=>{
+      console.log(res)
+      window.location.reload();
+    })
   }
 
   searchTitle(): void {
