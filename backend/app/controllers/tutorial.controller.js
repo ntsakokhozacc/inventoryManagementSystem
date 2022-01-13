@@ -4,16 +4,19 @@ const Tutorial = db.tutorials;
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    if (!req.body.name) {
         res.status(400).send({ message: "Content can not be empty!" });
       return;
     }
   
     // Create a Tutorial
     const tutorial = new Tutorial({
-        title: req.body.title,
+        name: req.body.name,
         description: req.body.description,
-        published: req.body.published ? req.body.published : false
+        sku: req.body.sku,
+        price: req.body.price,
+        stock: req.body.stock
+        
     });
   
     // Save Tutorial in the database
@@ -32,9 +35,9 @@ exports.create = (req, res) => {
 
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
-    const title = req.query.title;
-    var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
-  
+    const name = req.query.name;
+    var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
+  name
     Tutorial.find(condition)
       .then(data => {
         res.send(data);
@@ -129,15 +132,15 @@ exports.deleteAll = (req, res) => {
   };
 
 // Find all published Tutorials
-exports.findAllPublished = (req, res) => {
-    Tutorial.find({ published: true })
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving tutorials."
-        });
-      });
-  };
+// exports.findAllPublished = (req, res) => {
+//     Tutorial.find({ published: true })
+//       .then(data => {
+//         res.send(data);
+//       })
+//       .catch(err => {
+//         res.status(500).send({
+//           message:
+//             err.message || "Some error occurred while retrieving tutorials."
+//         });
+//       });
+//   };

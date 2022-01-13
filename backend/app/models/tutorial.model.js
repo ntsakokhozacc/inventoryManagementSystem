@@ -1,11 +1,13 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
-      title: String,
+      name: String,
       description: String,
-      published: Boolean
+      sku: String,
+      price: Number,
+      stock: Number
+
     },
-    { timestamps: true }
   );
 
   schema.method("toJSON", function() {
