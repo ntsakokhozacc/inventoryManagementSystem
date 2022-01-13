@@ -6,7 +6,7 @@
             type="text"
             class="form-control"
             placeholder="Search Product by title"
-            [(ngModel)]="title"
+            [(ngModel)]="name"
           />
           <div class="input-group-append">
             <button
@@ -38,11 +38,11 @@
         </thead>
         <tbody>
           <tr  *ngFor="let tutorial of tutorials; let i = index" [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
-            <td scope="row">{{tutorial.title}}</td>
-            <td>fyfthgfhg</td>
+            <td scope="row">{{tutorial.name}}</td>
+            <td>{{tutorial.sku}}</td>
             <td>{{tutorial.description}}</td>
-            <td>R7000.00</td>
-            <td>55</td>
+            <td>{{tutorial.price}}</td>
+            <td>{{tutorial.stock}}</td>
             <td>
               <p>
                 <a routerLink="/tutorials/{{ tutorial.id }}" class="text-decoration-none">
@@ -70,10 +70,8 @@
       </button>
     </div>
     <div class="col">
-      <app-tutorial-details
-        [viewMode]="true"
-        [currentTutorial]="currentTutorial"
-      ></app-tutorial-details>
+      <app-tutorial-details>
+      </app-tutorial-details>
     </div>
   </div>
 </div>

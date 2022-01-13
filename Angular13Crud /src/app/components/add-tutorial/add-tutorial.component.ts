@@ -10,9 +10,12 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 export class AddTutorialComponent implements OnInit {
 
   tutorial: Tutorial = {
-    title: '',
+    id: '', 
+    name: '',
     description: '',
-    published: false
+    sku: '',
+    price: 0,
+    stock: 0
   };
   submitted = false;
 
@@ -22,9 +25,13 @@ export class AddTutorialComponent implements OnInit {
   }
 
   saveTutorial(): void {
-    const data = {
-      title: this.tutorial.title,
-      description: this.tutorial.description
+    const data = { 
+      name: this.tutorial.name,
+      description: this.tutorial.description,
+    sku: this.tutorial.sku,
+    price: this.tutorial.price,
+    stock: this.tutorial.price
+      
     };
 
     this.tutorialService.create(data)
@@ -40,9 +47,12 @@ export class AddTutorialComponent implements OnInit {
   newTutorial(): void {
     this.submitted = false;
     this.tutorial = {
-      title: '',
+      id: '', 
+      name: '',
       description: '',
-      published: false
+      sku: '',
+      price: 0,
+      stock: 0
     };
   }
 
