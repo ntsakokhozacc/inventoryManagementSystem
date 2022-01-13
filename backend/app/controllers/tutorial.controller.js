@@ -54,7 +54,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const id= req.params.id;
 
-    tutorials.findById(id)
+    Tutorial.findById(id)
     .then(data =>{
         if(!data)
         res.status(404).send({message: "Not found Tutorial with id "+ id});
