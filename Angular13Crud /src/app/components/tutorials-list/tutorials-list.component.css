@@ -35,9 +35,11 @@ body{
 }
 
 .tableBg{
-  background-image: linear-gradient(to top, rgba(240, 248, 248, 0), rgb(228, 240, 239));
+  background-image: linear-gradient(to top, rgba(243, 248, 240, 0.822), white);
   border-radius: 1rem;
   
   
   position:absolute;
+  padding-left:3.5rem;
+  padding-bottom: 1rem;
 }
