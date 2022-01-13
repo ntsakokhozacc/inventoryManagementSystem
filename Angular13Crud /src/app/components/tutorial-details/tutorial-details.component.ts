@@ -10,85 +10,87 @@ import { Tutorial } from 'src/app/models/tutorial.model';
 })
 export class TutorialDetailsComponent implements OnInit {
 
-  constructor(){}
-  ngOnInit(): void {
-      
-  }
-  // @Input() viewMode = false;
+  @Input() viewMode = false;
 
-  // @Input() currentTutorial: Tutorial = {
-  //   title: '',
-  //   description: '',
-  //   published: false
-  // };
+  @Input() currentTutorial: Tutorial = {
+    name: '',
+    description: '',
+    sku: '',
+    price: 0,
+    stock: 0
+
+    //published: false
+  };
   
-  // message = '';
+  message = '';
 
-  // constructor(
-  //   private tutorialService: TutorialService,
-  //   private route: ActivatedRoute,
-  //   private router: Router) { }
+  constructor(
+    private tutorialService: TutorialService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
-  // ngOnInit(): void {
-  //   if (!this.viewMode) {
-  //     this.message = '';
-  //     this.getTutorial(this.route.snapshot.params["id"]);
-  //   }
-  // }
+  ngOnInit(): void {
+    if (!this.viewMode) {
+      this.message = '';
+      this.getTutorial(this.route.snapshot.params["id"]);
+    }
+  }
 
-  // getTutorial(id: string): void {
-  //   this.tutorialService.get(id)
-  //     .subscribe({
-  //       next: (data) => {
-  //         this.currentTutorial = data;
-  //         console.log(data);
-  //       },
-  //       error: (e) => console.error(e)
-  //     });
-  // }
+  getTutorial(id: string): void {
+    this.tutorialService.get(id)
+      .subscribe({
+        next: (data) => {
+          this.currentTutorial = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+  }
 
-  // updatePublished(status: boolean): void {
-  //   const data = {
-  //     title: this.currentTutorial.title,
-  //     description: this.currentTutorial.description,
-  //     published: status
-  //   };
+  updatePublished(status: boolean): void {
+    const data = {
+      title: this.currentTutorial.name,
+      description: this.currentTutorial.description,
+      sku: this.currentTutorial.sku,
+      price: this.currentTutorial.price,
+      stock: this.currentTutorial.stock
+    };
 
-  //   this.message = '';
+    this.message = '';
 
-  //   this.tutorialService.update(this.currentTutorial.id, data)
-  //     .subscribe({
-  //       next: (res) => {
-  //         console.log(res);
-  //         this.currentTutorial.published = status;
-  //         this.message = res.message ? res.message : 'The status was updated successfully!';
-  //       },
-  //       error: (e) => console.error(e)
-  //     });
-  // }
+    this.tutorialService.update(this.currentTutorial.id, data)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          //this.currentTutorial.published = status;
+          this.message = res.message ? res.message : 'The status was updated successfully!';
+        },
+        error: (e) => console.error(e)
+      });
+  }
 
-  // updateTutorial(): void {
-  //   this.message = '';
+  updateTutorial(): void {
+    this.message = '';
 
-  //   this.tutorialService.update(this.currentTutorial.id, this.currentTutorial)
-  //     .subscribe({
-  //       next: (res) => {
-  //         console.log(res);
-  //         this.message = res.message ? res.message : 'This tutorial was updated successfully!';
-  //       },
-  //       error: (e) => console.error(e)
-  //     });
-  // }
+    this.tutorialService.update(this.currentTutorial.id, this.currentTutorial)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.message = res.message ? res.message : 'This tutorial was updated successfully!';
+        },
+        error: (e) => console.error(e)
+      });
+  }
 
-  // deleteTutorial(): void {
-  //   this.tutorialService.delete(this.currentTutorial.id)
-  //     .subscribe({
-  //       next: (res) => {
-  //         console.log(res);
-  //         this.router.navigate(['/tutorials']);
-  //       },
-  //       error: (e) => console.error(e)
-  //     });
-  // }
+  deleteTutorial(): void {
+    this.tutorialService.delete(this.currentTutorial.id)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.router.navigate(['/tutorials']);
+        },
+        error: (e) => console.error(e)
+      });
+  }
 
 }
