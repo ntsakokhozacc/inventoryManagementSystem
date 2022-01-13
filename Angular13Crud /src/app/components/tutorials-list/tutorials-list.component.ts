@@ -13,6 +13,8 @@ export class TutorialsListComponent implements OnInit {
   currentTutorial: Tutorial = {};
   currentIndex = -1;
   name = '';
+  show: boolean = false;
+
 
   constructor(private tutorialService: TutorialService) { }
 
@@ -74,5 +76,6 @@ export class TutorialsListComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
+
 
 }

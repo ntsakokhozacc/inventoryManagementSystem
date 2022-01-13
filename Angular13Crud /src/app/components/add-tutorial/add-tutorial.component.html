@@ -1,77 +1,95 @@
-<div>
+<body>
+<div class="add">
     <div class="submit-form">
       <div *ngIf="!submitted">
-        <h2>Add New item to inventory</h2>
-        <div class="form-group">
-          <label for="title">Name</label>
-          <!-- this is the title -->
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            required
-            [(ngModel)]="tutorial.name"
-            name="title"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="description">SKU</label>
-          <!-- this is the description -->
-          <input
-            class="form-control"
-            id="description"
-            required
-            [(ngModel)]="tutorial.sku"
-            name="description"
-          />
-        </div>
+        <p class="heading">Add New item</p>
+        <form class="border border-3 rounded-3 p-4 shadow bg-white">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <!-- this is the title -->
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="tutorial.name"
+              name="name"
+              required #name="ngModel"
+            />
+          </div>
 
-        <div class="form-group">
-          <label for="description">Description</label>
-          <input
-            class="form-control"
-            id="description"
-            required
-            [(ngModel)]="tutorial.description"
-            name="description"
-          />
-        </div>
+          <div class="text-danger" *ngIf="name.touched && name.invalid">
+            <h6>name cannot be empty</h6>
+          </div>
+    
+          <div class="form-group">
+            <label for="sku">SKU</label>
+            <!-- this is the description -->
+            <input
+              class="form-control"
+              id="sku"
+              required
+              [(ngModel)]="tutorial.sku"
+              name="sku" #sku="ngModel"
+            />
+          </div>
 
-        <div class="form-group">
-          <label for="description">Price</label>
-          <input
-            class="form-control"
-            id="description"
-            required
-            [(ngModel)]="tutorial.price"
-            name="description"
-          />
-        </div>
+          <div class="text-danger" *ngIf="sku.touched && sku.invalid">
+            <h6>Sku cannot be empty</h6>
+          </div>
 
-        <div class="form-group">
-          <label for="description">Stock Level</label>
-          <input
-            class="form-control"
-            id="description"
-            required
-            [(ngModel)]="tutorial.stock"
-            name="description"
-          />
-        </div>
-        <br>
-        <div class="d-grid gap-2">
-          <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
-        </div>
-        
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              class="form-control"
+              id="description"
+              required
+              [(ngModel)]="tutorial.description"
+              name="description" #description="ngModel"
+            />
+          </div>
 
+          <div class="text-danger" *ngIf="description.touched && description.invalid ">
+            <h6>Please enter description</h6>
+          </div>
 
-  
-        
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              required
+              [(ngModel)]="tutorial.price"
+              name="price" #price="ngModel"
+            />
+          </div>
+          <div class="text-danger" *ngIf="price.touched && price.invalid">
+            <h6>Please Enter invalid price</h6>
+          </div>
+          <div class="form-group">
+            <label for="stock">Stock Level</label>
+            <input type="number"
+              class="form-control"
+              id="stock"
+              required
+              [(ngModel)]="tutorial.stock"
+              name="stock" #stock="ngModel"
+            />
+          </div>
+          <div class="text-danger" *ngIf="stock.touched && stock.invalid">
+            <h6>Please Enter invalid price</h6>
+          </div>
+          <br>
+          <div class="d-grid gap-2">
+            <button (click)="saveTutorial()" [disabled]="name.invalid || description.invalid || sku.invalid || stock.invalid || price.invalid" class="btn btn-success">Submit</button>
+          </div>
+      </form>
 
-        
-
-
+      
+        <!-- <div *ngIf=isEmpty()>
+          <h4>Cant Submit empty form</h4>
+        </div> -->
       </div>
   
       <div *ngIf="submitted">
@@ -79,4 +97,6 @@
         <button class="btn btn-success" (click)="newTutorial()">Add</button>
       </div>
     </div>
-  </div>
+</div>
+</body>
+  

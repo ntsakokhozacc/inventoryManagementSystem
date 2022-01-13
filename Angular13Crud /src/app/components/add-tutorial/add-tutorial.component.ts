@@ -17,7 +17,10 @@ export class AddTutorialComponent implements OnInit {
     price: 0,
     stock: 0
   };
+
+  empty=!true;
   submitted = false;
+  message = '';
 
   constructor(private tutorialService: TutorialService) { }
 
@@ -25,6 +28,7 @@ export class AddTutorialComponent implements OnInit {
   }
 
   saveTutorial(): void {
+    
     const data = { 
       name: this.tutorial.name,
       description: this.tutorial.description,
@@ -33,6 +37,17 @@ export class AddTutorialComponent implements OnInit {
     stock: this.tutorial.price
       
     };
+    
+    // this.empty= this.isEmpty(this.empty,this.data)
+
+    // if(this.empty=false){
+    //   this.message="empty"
+    // }
+
+    // if(!data){
+    //   this.empty = !this.empty;
+    //   this.message = 'empty form'
+    // }
 
     this.tutorialService.create(data)
       .subscribe({
@@ -43,6 +58,13 @@ export class AddTutorialComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
+
+  // isEmpty(empty:any,info:any): any{
+  //   if(!info){
+  //     empty = false;
+  //   }
+  //   return empty;
+  // }
 
   newTutorial(): void {
     this.submitted = false;
