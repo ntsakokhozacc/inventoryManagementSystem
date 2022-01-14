@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tutorial } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
 import { UpperCasePipe } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-tutorial',
@@ -23,7 +24,8 @@ export class AddTutorialComponent implements OnInit {
   submitted = false;
   message = '';
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private tutorialService: TutorialService ,private route: ActivatedRoute, private router: Router) { 
+  }
 
   ngOnInit(): void {
   }
@@ -46,6 +48,8 @@ export class AddTutorialComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.submitted = true;
+          alert('Product was created successfully!')
+          this.router.navigate(['/tutorials']);
         },
         error: (e) => console.error(e)
       });

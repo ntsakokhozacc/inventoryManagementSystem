@@ -88,7 +88,7 @@ export class TutorialDetailsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          alert('Product was deleted successfully!')
+          alert('Product was updated successfully!')
           this.router.navigate(['/tutorials']);
         },
         error: (e) => console.error(e)
