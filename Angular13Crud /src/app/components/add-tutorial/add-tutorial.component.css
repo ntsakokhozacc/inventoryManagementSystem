@@ -4,7 +4,7 @@
    /* opacity: 90%; */
 }
 
-body{
+/* body{
   height: 100vh;
   background-image: url(/assets/box-img.png);
   background: url(/assets/box-img.png) no-repeat center center fixed; 
@@ -12,10 +12,9 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /* filter: blur(8px);
-  -webkit-filter: blur(8px); */
+  
   opacity: 80%;
-}
+} */
 
 
 

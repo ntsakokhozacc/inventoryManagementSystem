@@ -29,25 +29,16 @@ export class AddTutorialComponent implements OnInit {
 
   saveTutorial(): void {
     
-    const data = { 
+    const data = {
+       
       name: this.tutorial.name,
       description: this.tutorial.description,
-    sku: this.tutorial.sku,
-    price: this.tutorial.price,
-    stock: this.tutorial.price
+      sku: this.tutorial.sku,
+      price: this.tutorial.price,
+      stock: this.tutorial.price
       
     };
-    
-    // this.empty= this.isEmpty(this.empty,this.data)
-
-    // if(this.empty=false){
-    //   this.message="empty"
-    // }
-
-    // if(!data){
-    //   this.empty = !this.empty;
-    //   this.message = 'empty form'
-    // }
+  
 
     this.tutorialService.create(data)
       .subscribe({

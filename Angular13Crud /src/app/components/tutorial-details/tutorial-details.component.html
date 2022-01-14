@@ -1,87 +1,69 @@
+<div class="bod">
+
 <div *ngIf="viewMode; else editable">
-    <!-- <div *ngIf="currentTutorial.id">
-      <h4>Tutorial</h4>
-      <div>
-        <label><strong>Title:</strong></label> {{ currentTutorial.name }}
-      </div>
-      <div>
-        <label><strong>Description:</strong></label>
-        {{ currentTutorial.description }}
-      </div>
-      
-  
-      <a
-        class="badge badge-warning"
-        routerLink="/tutorials/{{ currentTutorial.id }}"
-      >
-        Edit
-      </a>
-    </div> -->
-  
     <div *ngIf="!currentTutorial">
       <br />
       <p>Please click on a Tutorial...</p>
     </div>
-  </div>
+</div>
   
-  <ng-template #editable>
-    <div *ngIf="currentTutorial.id" class="edit-form">
-      <h4 class="display-5 text-center">Product</h4>
-      <form>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            [(ngModel)]="currentTutorial.name"
-            name="name"
-          />
-        </div>
-        <div class="form-group">
-          <label for="description">Description</label>
-          <input
-            type="text"
-            class="form-control"
-            id="description"
-            [(ngModel)]="currentTutorial.description"
-            name="description"
-          />
-        </div>
-        <div class="form-group">
-          <label for="sku">SKU</label>
-          <input
-            type="text"
-            class="form-control"
-            id="sku"
-            [(ngModel)]="currentTutorial.sku"
-            name="sku"
-          />
-        </div>
+<ng-template #editable>
+  <div *ngIf="currentTutorial.id" class="edit-form">
+    <h2 class="text-center text-white text-bolder opacity-100">Update Product</h2>
+    <form class="border border-3 rounded-3 p-4 shadow bg-white opacity-80">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="currentTutorial.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentTutorial.description"
+          name="description"
+        />
+      </div>
+      <div class="form-group">
+        <label for="sku">SKU</label>
+        <input
+          type="text"
+          class="form-control"
+          id="sku"
+          [(ngModel)]="currentTutorial.sku"
+          name="sku"
+        />
+      </div>
 
-        <div class="form-group">
-          <label for="price">price</label>
-          <input
-            type="number"
-            class="form-control"
-            id="sku"
-            [(ngModel)]="currentTutorial.price"
-            name="price"
-          />
-        </div>
+      <div class="form-group">
+        <label for="price">price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="sku"
+          [(ngModel)]="currentTutorial.price"
+          name="price"
+        />
+      </div>
 
-        <div class="form-group">
-          <label for="stock">Stock</label>
-          <input
-            type="text"
-            class="form-control"
-            id="stock"
-            [(ngModel)]="currentTutorial.stock"
-            name="stock"
-          />
-        </div>
-      </form>
-  
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input
+          type="text"
+          class="form-control"
+          id="stock"
+          [(ngModel)]="currentTutorial.stock"
+          name="stock"
+        />
+      </div>
+
       <button class="btn btn-danger m-2" (click)="deleteTutorial()">
         Delete
       </button>
@@ -93,11 +75,16 @@
       >
         Update
       </button>
-      <p>{{ message }}</p>
-    </div>
-  
-    <div *ngIf="!currentTutorial">
-      <br />
-      <p>Cannot access this Tutorial...</p>
-    </div>
-  </ng-template>
+    </form>
+
+    
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentTutorial">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</ng-template>
+
+</div>

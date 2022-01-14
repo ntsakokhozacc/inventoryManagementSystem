@@ -76,7 +76,7 @@ export class TutorialDetailsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          alert(this.message = res.message ? res.message : 'This tutorial was updated successfully!')
+          alert('Product was updated successfully!')
           this.router.navigate(['/tutorials']);
         },
         error: (e) => console.error(e)

@@ -1,4 +1,17 @@
 .edit-form {
     max-width: 400px;
     margin: auto;
+    margin-bottom: 10px;
   }
+
+ /* .bod{
+    
+    background-image: url(/assets/box-img.png);
+    background: url(/assets/box-img.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+  } */
+
