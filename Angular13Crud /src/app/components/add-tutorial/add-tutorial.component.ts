@@ -35,7 +35,7 @@ export class AddTutorialComponent implements OnInit {
       description: this.tutorial.description,
       sku: this.tutorial.sku,
       price: this.tutorial.price,
-      stock: this.tutorial.price
+      stock: this.tutorial.stock
       
     };
   
