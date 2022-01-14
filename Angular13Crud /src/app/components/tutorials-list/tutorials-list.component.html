@@ -40,7 +40,7 @@
         <tbody>
           <tr  *ngFor="let tutorial of tutorials; let i = index" [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
             <td scope="row">{{tutorial.name}}</td>
-            <td>{{tutorial.sku}}</td>
+            <td class="text-uppercase">{{tutorial.sku}}</td>
             <td>{{tutorial.description}}</td>
             <td>R{{tutorial.price}}</td>
             <td>{{tutorial.stock}}</td>
