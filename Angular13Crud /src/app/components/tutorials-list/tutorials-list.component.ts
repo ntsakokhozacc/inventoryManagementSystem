@@ -50,6 +50,7 @@ export class TutorialsListComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
+          alert('Products were deleted successfully!')
           this.refreshList();
         },
         error: (e) => console.error(e)
@@ -59,6 +60,7 @@ export class TutorialsListComponent implements OnInit {
   removeById(id: any){
     this.tutorialService.delete(id).subscribe(res=>{
       console.log(res)
+      alert('Product was deleted successfully!')
       window.location.reload();
     })
   }
