@@ -45,8 +45,6 @@ export class TutorialsListComponent implements OnInit {
     this.currentTutorial = tutorial;
     this.currentIndex = index;
     this.tutorial_Name=tutorial.name
-    console.log('**********************************');
-    console.log(this.currentIndex);
 
   }
 
