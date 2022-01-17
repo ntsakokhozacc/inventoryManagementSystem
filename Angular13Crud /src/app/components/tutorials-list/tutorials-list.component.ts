@@ -14,6 +14,7 @@ export class TutorialsListComponent implements OnInit {
   currentIndex = -1;
   name = '';
   show: boolean = false;
+  tutorial_Name:any;
 
 
   constructor(private tutorialService: TutorialService) { }
@@ -43,6 +44,10 @@ export class TutorialsListComponent implements OnInit {
   setActiveTutorial(tutorial: Tutorial, index: number): void {
     this.currentTutorial = tutorial;
     this.currentIndex = index;
+    this.tutorial_Name=tutorial.name
+    console.log('**********************************');
+    console.log(this.currentIndex);
+
   }
 
   removeAllTutorials(): void {
@@ -60,7 +65,6 @@ export class TutorialsListComponent implements OnInit {
   removeById(id: any){
     this.tutorialService.delete(id).subscribe(res=>{
       console.log(res)
-      alert('Product was deleted successfully!')
       window.location.reload();
     })
   }

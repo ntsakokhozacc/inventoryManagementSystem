@@ -94,5 +94,7 @@ export class TutorialDetailsComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
-
+  cancelTutorial(): void {
+    this.router.navigate(['/tutorials']);
+  }
 }
